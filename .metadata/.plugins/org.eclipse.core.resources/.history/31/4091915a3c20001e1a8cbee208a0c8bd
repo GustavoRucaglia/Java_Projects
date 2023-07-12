@@ -1,0 +1,14 @@
+package entities;
+
+public final class OutsourcedEmployee extends Employee{
+
+	
+	public OutsourcedEmployee(String name, Integer hours, Double valuePerHour) {
+		super(name, hours, valuePerHour);
+	}
+	
+	public Double additionalCharge() {
+		return this.getValuePerHour() * this.getHours();
+		}
+	
+}

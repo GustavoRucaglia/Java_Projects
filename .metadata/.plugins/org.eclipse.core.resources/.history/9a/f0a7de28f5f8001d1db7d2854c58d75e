@@ -1,0 +1,16 @@
+package vetor_Aula;
+
+public class Boxing {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int x = 20;
+		
+		Object obj = 20;
+		int y = (int) obj;
+		
+		System.out.println(obj);
+		System.out.println(y);
+	}
+
+}

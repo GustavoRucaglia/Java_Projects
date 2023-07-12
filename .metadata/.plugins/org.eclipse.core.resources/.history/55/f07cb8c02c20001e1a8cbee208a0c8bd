@@ -1,0 +1,49 @@
+package application;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
+
+import entities.Client;
+import entities.Order1;
+import entities.OrderItem;
+import entities.Product;
+import entities.enums.OrderStatus;
+
+public class ProgramDelivrey {
+	 public static void main(String[] args) throws ParseException {
+		 
+		Scanner tcd = new Scanner(System.in);
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		
+		System.out.println("Enter cliente data:");
+		System.out.println("Name:");
+		String name = tcd.nextLine();
+		System.out.println("Email:");
+		String email = tcd.nextLine();
+		System.out.println("Birth date (DD/MM/YYY): ");
+		Date birth = sdf.parse(tcd.next());
+		Client c1 = new Client(name, email, birth);
+		System.out.println("Enter order data: ");
+		System.out.println("Status: ");
+		String status = tcd.next();
+		System.out.println("how many items to this order?");
+		int n = tcd.nextInt();
+		Order1 order = new Order1(OrderStatus.valueOf(status), c1);
+		for(int i = 0; i <= n; i++) {
+			System.out.println("Enters #" + i + " item data:");
+			System.out.println("Product name:");
+			String productName = tcd.next();
+			System.out.println("Product price: ");
+			Double productPrice = tcd.nextDouble();
+			Product p1 = new Product(productName, productPrice);
+			System.out.println("Product quantity ");
+			Integer quantity = tcd.nextInt();
+			OrderItem orderItem = new OrderItem(quantity, p1);
+			order.addItem(orderItem);
+		}
+		System.out.println(order);
+		tcd.close();
+	}
+}

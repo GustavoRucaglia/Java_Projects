@@ -1,0 +1,14 @@
+package entities;
+
+import java.util.Date;
+
+import entities.enums.OrderStatus;
+
+public class Order1 {
+	
+	private Date moment = new Date();
+	private OrderStatus status;
+	
+	private Client client;
+	private List<OrderItem> items = new ArrayList<OrderItem>();
+}

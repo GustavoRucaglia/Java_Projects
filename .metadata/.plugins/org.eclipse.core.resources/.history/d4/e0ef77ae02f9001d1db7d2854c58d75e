@@ -1,0 +1,23 @@
+package vetor_Aula;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ListIntroducao {
+
+	public static void main(String[] args) {
+		
+		List<String> list = new ArrayList<>();
+		
+		list.add("Maria");
+		list.add("Bob");
+		list.add("jao");
+		list.add("Matheus");
+		
+		for(String x : list) {
+			System.out.println("O nome é: " + x);
+		}
+		
+	}
+
+}

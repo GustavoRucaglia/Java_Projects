@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Encapsulate field &apos;entities.OutsourcedEmployee.additionalCharge&apos; in &apos;entities.OutsourcedEmployee&apos;&#x0D;&#x0A;- Original project: &apos;Polimorfismo e heranca&apos;&#x0D;&#x0A;- Original element: &apos;entities.OutsourcedEmployee.additionalCharge&apos;&#x0D;&#x0A;- Getter method name: &apos;getAdditionalCharge&apos;&#x0D;&#x0A;- Setter method name: &apos;setAdditionalCharge&apos;&#x0D;&#x0A;- Field visibility: &apos;public&apos;&#x0D;&#x0A;- Use getter and setter methods in declaring type" comments="false" declaring="true" description="Encapsulate field &apos;additionalCharge&apos;" flags="589830" getter="getAdditionalCharge" id="org.eclipse.jdt.ui.self.encapsulate" input="/src&lt;entities{OutsourcedEmployee.java[OutsourcedEmployee^additionalCharge" insertion="0" setter="setAdditionalCharge" stamp="1689115287804" version="1.0" visibility="1"/>
+</session>
