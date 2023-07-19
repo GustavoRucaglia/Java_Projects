@@ -41,6 +41,7 @@ public class Program {
 	    System.out.println("Pagamento Basico: " + cr.getInvoice().getBasicPayment());
 	    System.out.println("Imposto: " + cr.getInvoice().getTax());
 	    System.out.println("Pagamento total: " + cr.getInvoice().getTotalPayment());
+	    
+	    sc.close();
 	    }
-
 }
