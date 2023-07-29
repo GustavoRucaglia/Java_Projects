@@ -2,11 +2,8 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="entides.Product"/>
-    <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
     <fullyQualifiedTypeName name="java.time.Instant"/>
-    <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
     <fullyQualifiedTypeName name="entities.enums.OrderStatus"/>
-    <fullyQualifiedTypeName name="java.util.Locale"/>
     <fullyQualifiedTypeName name="entities.Comment"/>
     <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
     <fullyQualifiedTypeName name="entities.BusinessAccont"/>
@@ -35,4 +32,14 @@
     <fullyQualifiedTypeName name="boardgame.BoardExcpetion"/>
     <fullyQualifiedTypeName name="java.io.File"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.util.Locale"/>
+    <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
+    <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
+    <fullyQualifiedTypeName name="java.time.Duration"/>
+    <fullyQualifiedTypeName name="boardLayer.BoardDimensions"/>
+    <fullyQualifiedTypeName name="boardLayer.PieceBoard"/>
+    <fullyQualifiedTypeName name="ticTacToe.MathPosition"/>
+    <fullyQualifiedTypeName name="ticTacToe.Piece"/>
+    <fullyQualifiedTypeName name="ticTacToe.Color"/>
+    <fullyQualifiedTypeName name="boardLayer.Position"/>
 </qualifiedTypeNameHistroy>
