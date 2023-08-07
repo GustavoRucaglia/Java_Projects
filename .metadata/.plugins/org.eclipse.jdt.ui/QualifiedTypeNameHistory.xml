@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="entides.Product"/>
     <fullyQualifiedTypeName name="java.time.Instant"/>
     <fullyQualifiedTypeName name="entities.enums.OrderStatus"/>
@@ -42,4 +41,7 @@
     <fullyQualifiedTypeName name="ticTacToe.Piece"/>
     <fullyQualifiedTypeName name="ticTacToe.Color"/>
     <fullyQualifiedTypeName name="boardLayer.Position"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="db.DB"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
 </qualifiedTypeNameHistroy>
