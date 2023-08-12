@@ -7,6 +7,7 @@ import java.sql.Statement;
 
 import db.DB;
 import db.DBIntegreteExcpetion;
+import db.DbException;
 
 public class Program {
 
@@ -20,6 +21,8 @@ public class Program {
 		try {
 			conn = DB.getConnection();
 			
+			conn.setAutoCommit(false);
+			
 			st = conn.createStatement();
 			
 			int rows1 = st.executeUpdate("Update seller set baseSary = 2090 where = 1");
@@ -30,10 +33,16 @@ public class Program {
 			
 			int rows2 = st.executeUpdate("Update seller set baseSary = 3090 where = 2");
 			
+			conn.commit();
+			
 			System.out.println(rows1);
 			System.out.println(rows2);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			try {
+				conn.rollback();
+				throw new DbException(e.getMessage());
+			} catch (SQLException e1) {
+				throw new DbException(e.getMessage());			}
 		}
 		finally {
 			DB.closeStatment(st);
