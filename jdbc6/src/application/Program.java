@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import db.DB;
-import db.DBIntegreteExcpetion;
 import db.DbException;
 
 public class Program {
