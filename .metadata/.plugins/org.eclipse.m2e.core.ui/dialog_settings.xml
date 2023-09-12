@@ -80,6 +80,7 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\gusta\OneDrive\Documentos\programação\java\curso-restful\FirstStep\demo"/>
 			<item value="C:\Users\gusta\OneDrive\Documentos\programação\java\curse"/>
 		</list>
 		<list key="projectNameTemplate">
