@@ -1,72 +1,65 @@
 package br.com.erudio.services;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Logger;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.erudio.excpetions.ResorceNotFound;
 import br.com.erudio.model.Person;
+import br.com.erudio.repository.PersonRepository;
 
 @Service
 public class PersonServices {
-	
-		private final AtomicLong counter = new AtomicLong();
+
+		
 		private Logger logger = Logger.getLogger(PersonServices.class.getName());
 		
-		public Person findById(String id) {
+		@Autowired
+		PersonRepository repository;
+		
+		public Person findById(Long id) {
 			
 			
 			  logger.info("Finding one person!");
-			 Person person = new Person();
-			 person.setId(counter.incrementAndGet());
-			 person.setFirstName("gustavo");
-			 person.setLastName("santiago");
-			 person.setAddress("uberlandia");
-			 person.setGenter("male");
-			 return person;
+		
+			 
+			 return repository.findById(id).orElseThrow(() -> new ResorceNotFound("no records found for this id"));
 		}
 		
 		public List<Person> findAll() {
+			
 			 logger.info("Finding all persons!");
-				List<Person> persons = new ArrayList<>();
-				
-				for (int i = 0; i < 8; i++) {
-				    Person person = mockPerson(i);
-					persons.add(person);
-				}
-				
-				return persons;
+			
+				return repository.findAll();
 		}
 		
 		public Person create(Person person) {
 			 logger.info("create person!");
 			 
-			 return person;
+			 return repository.save(person);
 		}
 		
 		public Person update(Person person) {
 			logger.info("update person!");
 			
-			return person;
+			var entity = repository.findById(person.getId()).orElseThrow(() -> new ResorceNotFound("no records found for this id"));
+			
+			entity.setFirstName(person.getFirstName());
+			entity.setLastName(person.getLastName());
+			entity.setAddress(person.getAddress());
+			entity.setGenter(person.getGenter());
+			
+			return repository.save(entity);
 		}
 		
-		public void delete(String id) {
+		public void delete(Long id) {
 			logger.info("delete one person!");
 			
+			var entity = repository.findById(id).orElseThrow(() -> new ResorceNotFound("no records found for this id"));
+			repository.delete(entity);
 		}
 		
-		private Person mockPerson(int i) {
-		
-			  logger.info("Finding one person!");
-			 Person person = new Person();
-			 person.setId(counter.incrementAndGet());
-			 person.setFirstName("gustavo" + i);
-			 person.setLastName("santiago" + i);
-			 person.setAddress("uberlandia" + i);
-			 person.setGenter("male" + i);
-			 return person;
-		}
 		
 	}

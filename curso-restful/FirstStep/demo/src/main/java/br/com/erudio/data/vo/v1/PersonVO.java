@@ -1,33 +1,21 @@
-package br.com.erudio.model;
+package br.com.erudio.data.vo.v1;
 
 import java.io.Serializable;
 import java.util.Objects;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
-@Entity
-@Table(name = "person")
-public class Person implements Serializable{
+public class PersonVO implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 		
-		@Id
-		@GeneratedValue(strategy = GenerationType.IDENTITY)
-		private Long id;
 		
-		@Column( name = "fist_name", nullable = false, length = 80)
+		private Long id;
 		private String firstName;
-		@Column( name = "last_name", nullable = false)
 		private String lastName;
 		private String address;
 		private String genter;
 		
-		public Person() {
+		public PersonVO() {
 		}
 
 		public String getFirstName() {
@@ -85,7 +73,7 @@ public class Person implements Serializable{
 				return false;
 			if (getClass() != obj.getClass())
 				return false;
-			Person other = (Person) obj;
+			PersonVO other = (PersonVO) obj;
 			return Objects.equals(id, other.id);
 		}
 		
