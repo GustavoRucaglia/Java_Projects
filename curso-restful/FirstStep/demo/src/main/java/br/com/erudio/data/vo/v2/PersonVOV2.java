@@ -1,37 +1,37 @@
-package br.com.erudio.model;
+package br.com.erudio.data.vo.v2;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
-@Entity
-@Table(name = "person")
-public class Person implements Serializable{
+
+public class PersonVOV2 implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 		
-		@Id
-		@GeneratedValue(strategy = GenerationType.IDENTITY)
-		private Long id;
 		
-		@Column( name = "fist_name", nullable = false, length = 80)
+		private Long id;
 		private String firstName;
-		@Column( name = "last_name", nullable = false)
 		private String lastName;
 		private String address;
 		private String genter;
 		
-		public Person() {
+		private Date birthDay;
+		
+		public PersonVOV2() {
 		}
-
+           
 		public String getFirstName() {
 			return firstName;
+		}
+		
+		public Date getBirthDay() {
+			return birthDay;
+		}
+
+		public void setBirthDay(Date date) {
+			this.birthDay = date;
 		}
 
 		public void setFirstName(String firstName) {
@@ -54,11 +54,11 @@ public class Person implements Serializable{
 			this.address = address;
 		}
 
-		public String getGender() {
+		public String getGenter() {
 			return genter;
 		}
 
-		public void setGender(String genter) {
+		public void setGenter(String genter) {
 			this.genter = genter;
 		}
 		
@@ -85,9 +85,11 @@ public class Person implements Serializable{
 				return false;
 			if (getClass() != obj.getClass())
 				return false;
-			Person other = (Person) obj;
+			PersonVOV2 other = (PersonVOV2) obj;
 			return Objects.equals(id, other.id);
 		}
+
+	    
 		
 		
 

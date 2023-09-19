@@ -6,7 +6,11 @@ import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.erudio.data.vo.v1.PersonVO;
+import br.com.erudio.data.vo.v2.PersonVOV2;
 import br.com.erudio.excpetions.ResorceNotFound;
+import br.com.erudio.mapper.DozerMapper;
+import br.com.erudio.mapper.custom.PersonMapper;
 import br.com.erudio.model.Person;
 import br.com.erudio.repository.PersonRepository;
 
@@ -19,47 +23,56 @@ public class PersonServices {
 		@Autowired
 		PersonRepository repository;
 		
-		public Person findById(Long id) {
+		@Autowired
+		PersonMapper mapper;
+		
+		public PersonVO findById(Long id) {
 			
 			
-			  logger.info("Finding one person!");
+			  logger.info("Finding one PersonVO!");
 		
 			 
-			 return repository.findById(id).orElseThrow(() -> new ResorceNotFound("no records found for this id"));
+			 var entity = repository.findById(id).orElseThrow(() -> new ResorceNotFound("no records found for this id"));
+			 return DozerMapper.parseObject(entity, PersonVO.class);
 		}
 		
-		public List<Person> findAll() {
+		public List<PersonVO> findAll() {
 			
-			 logger.info("Finding all persons!");
-			
-				return repository.findAll();
+			 logger.info("Finding all PersonVOs!");
+				return DozerMapper.parseListObjects(repository.findAll(), PersonVO.class);
 		}
 		
 		public Person create(Person person) {
-			 logger.info("create person!");
-			 
+			 logger.info("create PersonVO!");
 			 return repository.save(person);
 		}
 		
 		public Person update(Person person) {
-			logger.info("update person!");
+			logger.info("update PersonVO!");
 			
 			var entity = repository.findById(person.getId()).orElseThrow(() -> new ResorceNotFound("no records found for this id"));
 			
 			entity.setFirstName(person.getFirstName());
 			entity.setLastName(person.getLastName());
 			entity.setAddress(person.getAddress());
-			entity.setGenter(person.getGenter());
+			entity.setGender(person.getGender());
 			
 			return repository.save(entity);
 		}
 		
 		public void delete(Long id) {
-			logger.info("delete one person!");
+			logger.info("delete one PersonVO!");
 			
 			var entity = repository.findById(id).orElseThrow(() -> new ResorceNotFound("no records found for this id"));
 			repository.delete(entity);
 		}
-		
-		
-	}
+
+		public PersonVOV2 createV2(PersonVOV2 person) {
+			 logger.info("create PersonVO!");
+			 
+			 var entity = mapper.convertVoToEntity(person);
+			 var vo = mapper.convertEntityToVo(repository.save(entity));
+				return vo;
+			}  
+			
+		}
